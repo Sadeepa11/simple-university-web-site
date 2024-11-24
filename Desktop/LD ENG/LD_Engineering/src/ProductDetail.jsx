@@ -1,6 +1,6 @@
 import { useParams,useNavigate } from 'react-router-dom';
 
-
+// IMAGES
 
 import A_Series_HCP from './assets/imgs/pump_images/A Series - HCP.webp';
 import AF_Series_HCP from './assets/imgs/pump_images/AF Series - HCP.webp';
@@ -62,6 +62,21 @@ import MTW from './assets/imgs/pump_images/ETW.jpg';
 import MTKD from './assets/imgs/pump_images/MTKD.jpg';
 
 
+// CATLOGS
+import ASCAT from './assets/catalogs/air_stone.pdf';
+import AWMCAT from './assets/catalogs/apartment_water_meter.pdf';
+import BWMCAT from './assets/catalogs/bulk_water_meter.pdf';
+import CSCAT from './assets/catalogs/chemical_&_sea_water.pdf';
+import CPCAT from './assets/catalogs/chemical_pumps.pdf';
+import DCAT from './assets/catalogs/diffuser.pdf';
+import DWMCAT from './assets/catalogs/domestic_water_meters.pdf';
+import DPCCAT from './assets/catalogs/DPC_catalog.pdf';
+import DYBCAT from './assets/catalogs/DYB.pdf';
+import FSCAT from './assets/catalogs/float-switch.pdf';
+import PTCAT from './assets/catalogs/pressure_tank.pdf';
+import SPCAT from './assets/catalogs/self_priming.pdf';
+
+
 
 
 
@@ -104,11 +119,12 @@ const ProductDetail = () => {
             { name: 'HD Series (Brand: HCP)', img: HD_Series_HCP },
             { name: 'PW Series (Brand: WALRUS)', img: PW_AR_Series_SEA_WATER_WALRUS },
           ],
+          cat:CPCAT
         },
         {
           name: 'Pond',
           models: [
-            { name: 'PW Series (Brand: WALRUS)', img: PW_POND_Catagory_WALRUS },
+            { name: 'PW Series Pond (Brand: WALRUS)', img: PW_POND_Catagory_WALRUS },
             { name: 'POND Series (Brand: APEC)', img: POND_Series_HCP_Pond_Catagory },
           ],
         },
@@ -173,12 +189,14 @@ const ProductDetail = () => {
             { name: 'ELS (Brand: EVERGUSH)', img: ELS_Series_EVERGUSH },
             { name: 'LDSP 40 (Brand: NANTONG)', img: LDSP_40_Series_NANTONG },
           ],
+          cat:CSCAT
         },
         {
           name: 'Self Priming',
           models: [
             { name: 'SMSP (Brand: SINOMEC)', img: SMSP_Pump_Chemical_SINOMEC },
           ],
+          cat:SPCAT
         },
         {
           name: 'Booster',
@@ -210,6 +228,7 @@ const ProductDetail = () => {
             {name:'DYB (Brand: NANTONG)',img : DYB }
  
           ],
+          cat:DYBCAT
         },
       ],
     },
@@ -241,6 +260,7 @@ const ProductDetail = () => {
           models: [
             {name:'Type A,B,C,D & Nano', img:AS}
           ],
+          cat:ASCAT
         },
         {
           name: 'Manifold Valve',
@@ -262,6 +282,7 @@ const ProductDetail = () => {
             {name:'5m & 10m Float switch (Catalog Only)',img:fs}
 
           ],
+          cat:FSCAT
         },
       ],
     },
@@ -290,6 +311,7 @@ const ProductDetail = () => {
             {name:'8", 10", 12" Diffuser (Catalog & Image Only)',img:diffuser}
             
           ],
+          cat:DCAT
         },
       ],
     },
@@ -304,6 +326,7 @@ const ProductDetail = () => {
             {name: 'DPC 10 & DPC 25 (EVAK)',img:dpc}
            
           ],
+          cat:DPCCAT
         },
         {
           name: 'Mechanical Pressure Switch',
@@ -333,6 +356,7 @@ const ProductDetail = () => {
             {name:'Pressure Tank (Catalog)',img:PT}
             
           ],
+          cat:PTCAT
         },
       ],
     },
@@ -343,9 +367,10 @@ const ProductDetail = () => {
         {
           name: 'Bulk Water Meters',
           models: [
-            {name:'WPD / WI (ZENNER) (Flange Type)',img:WPD_WI}
+            {name:'WPD_WI (ZENNER) (Flange Type)',img:WPD_WI}
             
           ],
+          cat:BWMCAT
         },
         {
           name: 'Apartments',
@@ -354,15 +379,17 @@ const ProductDetail = () => {
             {name:'ETK (ZENNER) (Threaded Type)',img:ETK}
             
           ],
+          cat:AWMCAT
         },
         {
           name: 'Domestic Water Meters',
           models: [
-            {name:'MTKD / RNK (ZENNER)',img:MTKD},
-            {name:'MTW / ETW (ZENNER)',img:MTW}
+            {name:'MTKD_RNK (ZENNER)',img:MTKD},
+            {name:'MTW_ETW (ZENNER)',img:MTW}
             
             
           ],
+          cat:DWMCAT
         },
       ],
     },
@@ -399,6 +426,16 @@ const ProductDetail = () => {
               <h3 className="text-2xl font-semibold text-gray-800">
                 {subcategory.name}
               </h3>
+
+              {subcategory.cat && (
+                <a 
+                  href={subcategory.cat} 
+                  download 
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  Download Catalog
+                </a>
+              )}
             </div>
 
             {/* Models Grid */}
